@@ -5,9 +5,9 @@
 		<div v-if="!loading">
 			<div v-for="story in stories" :key="story.id" class="border-top py-3">
 				<div class="row">
-					<img :src="story.thumbnail" :alt="story.title" class="col-4">
-					<div class="col-8">
-						<p class="mb-5 fs-4 fw-bold">{{ story.title }}</p>
+					<img :src="story.thumbnail" :alt="story.title" class="col-md-4 col-12">
+					<div class="col-md-8 col-12">
+						<p class="mb-md-5 mb-3 mt-md-0 mt-3 fs-4 fw-bold text-md-left text-center">{{ story.title }}</p>
 						<div>{{ story.description }}</div>
 					</div>
 				</div>

@@ -2,10 +2,10 @@
 	<div class="py-4">
 		<div class="row">
 			<h6 class="mb-3">Busque seus 3 heróis preferidos da Marvel</h6>
-			<div class="col-10">
+			<div class="col-md-10 col-12">
 				<input class="form-control" type="text" placeholder="Busque um herói" v-model="hero" v-on:keyup.enter="submit" :disabled="selectedHeroes.length >= 3 ? true : false">
 			</div>
-			<div class="col-2">
+			<div class="col-md-2 col-12 mt-md-0 mt-2">
 				<button v-if="!loading" class="w-100 btn btn-success" :disabled="selectedHeroes.length >= 3 ? true : false" @click="submit">Buscar</button>
 				<button v-else class="w-100 btn btn-success" type="button" disabled>
 					<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
@@ -18,10 +18,10 @@
 		<div v-if="selectedHeroes.length > 0" class="mt-5">
 			<div class="selected-hero mb-2 border rounded overflow-hidden" v-for="hero in selectedHeroes" :key="hero.id">
 				<div class="row">
-					<img :src="hero.img" :alt="hero.name" class="col-4 col-md-2">
-					<div class="col-6 col-md-8">
-						<p class="name"><b>{{ hero.name }}</b></p>
-						<p class="description small">{{ hero.description != '' ? hero.description : 'Sem descrição' }}</p>
+					<img :src="hero.img" :alt="hero.name" class="col-md-2 col-12">
+					<div class="col-md-10 col-12">
+						<p class="name text-md-left text-center mt-md-0 mt-4"><b>{{ hero.name }}</b></p>
+						<p class="description small px-2">{{ hero.description != '' ? hero.description : 'Sem descrição' }}</p>
 					</div>
 				</div>
 			</div>

@@ -5,7 +5,7 @@
 		<div v-if="!loading">
 			<div v-for="hero in heroes" :key="hero.id" class="border-top py-3">
 				<p class="text-center fs-4 fw-bold">{{ hero.name }}</p>
-				<img :src="hero.img" :alt="hero.name" class="d-block m-auto w-50 mb-2">
+				<img :src="hero.img" :alt="hero.name" class="d-block m-auto w-md-50 w-100 mb-2">
 				<div>{{ hero.description }}</div>
 				<div class="mt-4 text-center">
 					<a :href="'/heroes/' + hero.id + '/stories'" class="btn btn-success">Ver histórias</a>
