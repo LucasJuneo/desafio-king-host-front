@@ -1,5 +1,5 @@
 <template>
-	<div class="p-4">
+	<div class="py-4">
 		<h3 class="mb-4 text-center">Lista de Heróis preferidos</h3>
 
 		<div v-for="hero in heroes" :key="hero.id" class="border-top py-3">
@@ -7,7 +7,7 @@
 			<img :src="hero.img" :alt="hero.name" class="d-block m-auto w-50 mb-2">
 			<div>{{ hero.description }}</div>
 			<div class="mt-4 text-center">
-				<a :href="'/history/' + hero.id" class="btn btn-success">Ver histórias</a>
+				<a :href="'/heroes/' + hero.id + '/stories'" class="btn btn-success">Ver histórias</a>
 			</div>
 		</div>
 	</div>
