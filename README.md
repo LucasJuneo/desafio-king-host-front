@@ -1,24 +1,32 @@
 # desafio-king-host-front
 
-## Project setup
+##### Front End do desafio da King Host.
+#####  Esse projeto é feito em Vue 3 e busca todos os dados da API (Back End) utilizando Axios
+
+##  Pré-requisitos
 ```
-npm install
+- Node
+```
+## Instalação
+```
+- npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilar para desenvolvimento
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+- npm run serve
 ```
 
-### Lints and fixes files
+### compilar para produção
 ```
-npm run lint
+- npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### configurações adicionais
+```
+- é preciso colocar na raiz do projeto o arquivo .env.local que sera enviado por e-mail
+- esse arquivo contém o token da API e a URL do back end
+```
+
+### Personalizar configuração
+[Documentação do VUE](https://cli.vuejs.org/config/).
