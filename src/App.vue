@@ -20,13 +20,29 @@
 </template>
 
 <script>
-// import logoSvg from './assets/logo.svg';
+import axios from 'axios';
 
 export default {
-  name: 'App',
-  components: {
-    // logoSvg
-  }
+	name: 'App',
+	methods: {
+		reset() {
+			let confirm = window.confirm('Tem certeza que deseja limpar todos os dados do banco de dados e reiniciar o sistema?');
+			if( confirm) {
+				axios.get(process.env.VUE_APP_BACKEND_URL + 'reset', {
+					headers: {
+						Authorization: process.env.VUE_APP_BACKEND_TOKEN
+					},
+				})
+				.then(() => {
+					this.$router.go('/');
+				})
+				.catch((error) => {
+					console.log(error);
+					alert('erro! Tente novamente mais tarde');
+				})
+			}
+		}
+	},
 }
 </script>
 
