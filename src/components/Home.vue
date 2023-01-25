@@ -1,5 +1,5 @@
 <template>
-	<div class="home py-4">
+	<div class="py-4">
 		<div class="row">
 			<h6 class="mb-3">Busque seus 3 heróis preferidos da Marvel</h6>
 			<div class="col-10">
@@ -68,7 +68,7 @@ export default {
 
 			this.loading = true;
 
-			axios.get(process.env.VUE_APP_BACKEND_URL + 'heroes', {
+			axios.get(process.env.VUE_APP_BACKEND_URL + 'fetch-heroes', {
 				params: {
 					name: this.hero
 				},
@@ -77,11 +77,17 @@ export default {
 				},
 			})
 			.then((response) => {
-				let data = response.data.data;
-				if (data != undefined) {
-					this.showSelectHeroes = true;
-					this.heroesSearched = data.results;
+				let data = response.data;
+				if (data.success != true) {
+					alert('erro! Tente novamente mais tarde');
+					return
 				}
+				this.showSelectHeroes = true;
+				this.heroesSearched = data.heroes.results;
+			})
+			.catch((error) => {
+				console.log(error);
+				alert('erro! Tente novamente mais tarde');
 			})
 			.finally(() => { 
 				this.hero = '';
@@ -101,13 +107,24 @@ export default {
 		},
 		finish() {
 			axios.post(process.env.VUE_APP_BACKEND_URL + 'heroes', {
-				params: {
-					heroes: this.selectedHeroes
-				},
+				heroes: this.selectedHeroes
+			},
+			{
 				headers: {
 					Authorization: process.env.VUE_APP_BACKEND_TOKEN
-				},
+				}
 			})
+			.then((response) => {
+				if (response.data.success != true) {
+					alert('erro! Tente novamente mais tarde');
+					return
+				}
+				this.$router.push('/heroes');
+			})
+			.catch((error) => {
+				console.log(error);
+				alert('erro! Tente novamente mais tarde');
+			});
 		}
 	},
 }

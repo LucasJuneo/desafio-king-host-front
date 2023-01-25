@@ -54,6 +54,7 @@ export default {
 			this.disableButton = false;
 			
 			this.selectedHero = {
+				id: hero.id,
 				name: hero.name,
 				description: hero.description != '' ? hero.description : 'Sem descrição',
 				img: hero.thumbnail.path + '.' + hero.thumbnail.extension,
