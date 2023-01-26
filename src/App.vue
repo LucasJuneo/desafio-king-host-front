@@ -10,7 +10,7 @@
 					<a href="https://king.host/" target="_blank" class="logo-link">
 						<img class="logo" src="./assets/logo.svg" alt="King Host">
 					</a>
-					<router-link to="/" class="text-white text-decoration-none">Sobre mim</router-link>
+					<router-link to="/about" class="text-white text-decoration-none">Sobre mim</router-link>
 					<span class="text-danger text-decoration-none ms-auto" role="button" @click="reset">Reiniciar</span>
 				</nav>
 			</div>
